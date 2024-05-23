@@ -49,18 +49,21 @@ const ChapterIdPage = async ({
         />
       )}
       <div className="flex flex-col max-w-4xl mx-auto pb-20">
-      <div className="p-4">
-            <div className="relative aspect-video"> 
-            <iframe
-                width="100%"
-                height="100%"
-                src= {videoUrl!}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-              </div>
-        </div>
+        
+      {videoUrl && (
+  <div className="p-4">
+    <div className="relative aspect-video"> 
+      <iframe
+        width="100%"
+        height="100%"
+        src={videoUrl}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    </div>
+  </div>
+)}
 
         <div>
           <div className="p-4 flex flex-col md:flex-row items-center justify-between">

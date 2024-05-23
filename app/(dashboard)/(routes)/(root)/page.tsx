@@ -1,5 +1,5 @@
 import { getDashboardCourses } from "@/actions/get-dashboard-courses";
-import CoursesList from "@/components/courses-list";
+import CoursesListHome from "./_components/list";
 import { UserButton, auth } from "@clerk/nextjs";
 import { CheckCircle, Clock } from "lucide-react";
 import { redirect } from "next/navigation";
@@ -23,8 +23,14 @@ export default async function Dashboard() {
           label="В процессе"
           numberOfItems={coursesInProgress.length}
         />
+        <InfoCard
+          icon={CheckCircle}
+          label="Прочитанно"
+          numberOfItems={completedCourses.length}
+          variant="success"
+        />
       </div>
-      {/* <CoursesList items={courses}/> */}
+       <CoursesListHome items={[...coursesInProgress, ...completedCourses]} />
     </div>
   );
 }
